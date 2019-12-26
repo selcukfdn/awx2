@@ -1,7 +1,7 @@
 ---
   - name:  Windows Update
     hosts: all
-    gather_facts: false
+    #gather_facts: false
     tasks:
       windows_iis_role:
       - name: Web-Server
