@@ -1,0 +1,8 @@
+---
+  - name: Add a user
+    tasks:
+      - name: Add User
+        win_user:
+          name: ansible
+          password: "Denek"
+          state: present
