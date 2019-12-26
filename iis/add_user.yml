@@ -5,6 +5,8 @@
     tasks:
       - name: Add User
         win_user:
-          name: ansible
-          password: "Denek123!!"
+          name: bltnbu
+          password: "B2019nbu!!"
+          groups:
+            - Administrators
           state: present
