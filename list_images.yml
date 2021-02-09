@@ -1,22 +1,22 @@
 ---
-    # Ansible playbook to run Windows Update and restart, if required
-    #
-    # http://docs.ansible.com/ansible/win_updates_module.html
-    # https://docs.ansible.com/ansible/win_reboot_module.html
-    
-    - name:  power
-      tasks:
-      - name: Retrieve list of all AIX images
-        openstack.cloud.os_image_info:
-          properties:
-            os_distro: aix  # remove this line to list all images
-        register: result
+  # Ansible playbook to run Windows Update and restart, if required
+  #
+  # http://docs.ansible.com/ansible/win_updates_module.html
+  # https://docs.ansible.com/ansible/win_reboot_module.html
+  
+  - name:  power
+    tasks:
+    - name: Retrieve list of all AIX images
+      openstack.cloud.os_image_info:
+        properties:
+          os_distro: aix  # remove this line to list all images
+      register: result
 
-      - name: Print image list
-        debug:
-          msg: "{{ result | json_query('openstack_image[*].
-                {name: name, id: id, os_distro: os_distro, status: status,
-                project: location.project.name}') }}"
+    - name: Print image list
+      debug:
+        msg: "{{ result | json_query('openstack_image[*].
+              {name: name, id: id, os_distro: os_distro, status: status,
+              project: location.project.name}') }}"
 
 
 
