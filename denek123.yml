@@ -4,12 +4,8 @@
   tasks:
     - name: Retrieve list of all AIX images
       openstack.cloud.image_info:
-        properties:
-          os_distro: aix  # remove this line to list all images
       register: result
 
     - name: Print image list
       debug:
-        msg: "{{ result | json_query('openstack_image[*].
-              {name: name, id: id, os_distro: os_distro, status: status,
-              project: location.project.name}') }}"
+        msg: "{{ result.openstack_image }}"
