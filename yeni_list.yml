@@ -1,9 +1,8 @@
 --- 
-- 
-  name: "Retrieve all available Openstack images"
-  openstack.cloud.image_info:
-  register: result
-- 
-  debug: 
-    msg: "{{ result.openstack_image }}"
-  name: "Show images"
+    - name: "Retrieve all available Openstack images"
+      openstack.cloud.image_info:
+      register: result
+    
+    - name: Print image list
+      debug: 
+       msg: "{{ result.openstack_image }}"
