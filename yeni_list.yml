@@ -1,7 +1,7 @@
 --- 
 - 
   name: "Retrieve all available Openstack images"
-  openstack.cloud.image_info: ~
+  openstack.cloud.image_info:
   register: result
 - 
   debug: 
